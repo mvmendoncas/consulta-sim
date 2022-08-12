@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :medicos
-  resources :pacientes
+  resources :pacientes do
+    resources :consulta
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
