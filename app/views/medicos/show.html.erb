@@ -2,6 +2,9 @@
 
 <%= render @medico %>
 
+<h2> Consultas </h2>
+<%= render @medico.consultums %>
+
 <div>
   <%= link_to "Edit this medico", edit_medico_path(@medico) %> |
   <%= link_to "Back to medicos", medicos_path %>
