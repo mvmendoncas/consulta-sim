@@ -24,6 +24,7 @@ class ConsultaController < ApplicationController
     @paciente = Paciente.find(params[:paciente_id])
     @consulta = @paciente.consultums.create(consultum_params)
     redirect_to paciente_path(@paciente)
+
   end
 
   # PATCH/PUT /consulta/1 or /consulta/1.json
