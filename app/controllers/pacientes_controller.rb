@@ -8,12 +8,13 @@ class PacientesController < ApplicationController
 
   # GET /pacientes/1 or /pacientes/1.json
   def show
-    @medicos = Medico.all.map{ |medico| [medico.primeiro_nome + medico.ultimo_nome, medico.id]}
+    @medicos = Medico.all.map { |medico| [medico.primeiro_nome + medico.ultimo_nome, medico.id] }
   end
 
   # GET /pacientes/new
   def new
     @paciente = Paciente.new
+    @paciente.build_endereco
   end
 
   # GET /pacientes/1/edit
@@ -67,10 +68,7 @@ class PacientesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def paciente_params
-    params.require(:paciente).permit(:primeiro_nome, :ultimo_nome, :cpf, :email, :data_de_nascimento)
+    params.require(:paciente).permit(:nome, :data, :cpf, :email, endereco_attributes: [:cep, :cidade, :bairro, :logradoro, :complemento])
   end
 
-  def endereco_params
-    params.require(:endereco).permit(:cep, :cidade, :bairro, :logradouro, :complemento)
-  end
 end

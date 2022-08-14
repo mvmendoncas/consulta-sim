@@ -35,7 +35,9 @@
     <%= form.label :data_de_nascimento, style: "display: block" %>
     <%= form.date_field :data_de_nascimento %>
   </div>
-  <%= fields_for :endereco, @paciente.endereco do |endereco_form| %>
+
+
+  <%= form.fields_for :endereco do |endereco_form| %>
     <div>
       <%= endereco_form.label :endereco_do_paciente, style: "display: block" %>
     </div>
@@ -63,11 +65,9 @@
       <%= endereco_form.text_field :complemento %>
     </div>
 
-
     <div>
       <%= form.submit %>
     </div>
   <% end %>
 <% end %>
-
 

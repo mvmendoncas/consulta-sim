@@ -5,6 +5,7 @@
 <h2> Consultas </h2>
 <%= render @paciente.consultums %>
 
+
 <h2> Agende uma consulta </h2>
 <%= form_with model: [@paciente, @paciente.consultums.build] do |form| %>
   <p>
