@@ -2,6 +2,15 @@
 
 <%= render @home_page %>
 
+<%= render @medicos %>
+<%= render @pacientes %>
+
+<div>
+  <%= link_to "Página do Médico", medicos_url %> |
+  <%= link_to "Página do Paciente", pacientes_url %> |
+
+</div>
+
 <div>
   <%= link_to "Edit this home page", edit_home_page_path(@home_page) %> |
   <%= link_to "Back to home pages", home_pages_path %>

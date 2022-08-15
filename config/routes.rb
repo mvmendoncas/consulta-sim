@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root "home_pages#index"
-  resources :home_pages
+  resources :home_pages do
+    resources :medicos
+  end
+  resources :home_pages do
+    resources :pacientes
+  end
   resources :medicos do
     resources :consulta
   end

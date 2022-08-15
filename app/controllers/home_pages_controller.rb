@@ -8,11 +8,14 @@ class HomePagesController < ApplicationController
 
   # GET /home_pages/1 or /home_pages/1.json
   def show
+    @medicos = Medico.all.map { |medico| [medico.primeiro_nome + medico.ultimo_nome, medico.id] }
+    @pacientes = Paciente.all.map{|paciente| [paciente.primeiro_nome + paciente.ultimo_nome, paciente.id]}
   end
 
   # GET /home_pages/new
   def new
     @home_page = HomePage.new
+    @home_page.build_medicos
   end
 
   # GET /home_pages/1/edit

@@ -2,13 +2,12 @@
 
 <h1>Home pages</h1>
 
-<div id="home_pages">
-  <% @home_pages.each do |home_page| %>
-    <%= render home_page %>
-    <p>
-      <%= link_to "Show this home page", home_page %>
-    </p>
-  <% end %>
+<div>
+  <%= link_to "Página de Médicos", medicos_url %>
 </div>
 
-<%= link_to "New home page", new_home_page_path %>
+<div>
+  <%= link_to "Página do Paciente", pacientes_url %>
+</div>
+
+
