@@ -1,7 +1,7 @@
 class Paciente < ApplicationRecord
-  has_one :endereco
+  has_one :endereco, dependent: :destroy
   accepts_nested_attributes_for :endereco
-  has_many :consultums, :dependent => :destroy
+  has_many :consultums,  dependent: :destroy
   accepts_nested_attributes_for :consultums
 
   #validates :primeiro_nome, presence: true, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }, length: { minimum: 2 }
