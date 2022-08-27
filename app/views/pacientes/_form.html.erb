@@ -39,9 +39,6 @@
 
   <%= form.fields_for :endereco do |endereco_form| %>
     <div>
-      <%= endereco_form.label :endereco_do_paciente, style: "display: block" %>
-    </div>
-    <div>
       <%= endereco_form.label :cep, style: "display: block" %>
       <%= endereco_form.text_field :cep %>
     </div>
@@ -64,10 +61,9 @@
       <%= endereco_form.label :complemento, style: "display: block" %>
       <%= endereco_form.text_field :complemento %>
     </div>
-
-    <div>
-      <%= form.submit %>
-    </div>
   <% end %>
+  <div>
+    <%= form.submit %>
+  </div>
 <% end %>
 
