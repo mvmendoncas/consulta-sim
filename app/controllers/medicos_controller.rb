@@ -5,7 +5,7 @@ class MedicosController < ApplicationController
   def index
     @medicos = Medico.all
   end
-
+  3333333333333
   # GET /medicos/1 or /medicos/1.json
   def show
   end

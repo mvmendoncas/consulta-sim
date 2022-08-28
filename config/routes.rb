@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   resources :home_pages do
     resources :pacientes
   end
-  resources :medicos do
+  resources :home_pages do
     resources :consulta
   end
-  resources :pacientes do
-    resources :consulta
-  end
+  resources :consulta
+  resources :medicos
+  resources :pacientes
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

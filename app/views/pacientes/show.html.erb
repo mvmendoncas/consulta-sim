@@ -2,37 +2,6 @@
 
 <%= render @paciente %>
 
-<h2> Consultas </h2>
-<%= render @paciente.consultums %>
-
-
-<h2> Agende uma consulta </h2>
-<%= form_with model: [@paciente, @paciente.consultums.build] do |form| %>
-  <p>
-    <%= form.label :data, style: "display: block" %>
-    <%= form.date_field :data %>
-  </p>
-
-  <p>
-    <%= form.label :horario, style: "display: block" %>
-    <%= form.time_field :horario %>
-  </p>
-
-  <p>
-    <%= form.label :medico_id, style: "display: block" %>
-    <%= form.select :medico_id, @medicos %>
-  </p>
-
-  <p>
-    <%= form.hidden_field :paciente_id, value: @paciente.id %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
-
-
 <div>
   <%= link_to "Edit this paciente", edit_paciente_path(@paciente) %> |
   <%= link_to "Back to pacientes", pacientes_path %>

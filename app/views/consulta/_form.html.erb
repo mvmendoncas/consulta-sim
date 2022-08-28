@@ -11,6 +11,21 @@
     </div>
   <% end %>
 
+  <h2> Agende uma consulta </h2>
+
+  <%= form.fields_for :medicos do |form_medico| %>
+    <div>
+      <%= form_medico.label :medico_id, style: "display: block" %>
+      <%= form_medico.select :medico_id, @medicos %>
+    </div>
+  <% end %>
+
+  <%= form.fields_for :medicos do |form_paciente| %>
+    <div>
+      <%= form_paciente.label :paciente_id, style: "display: block" %>
+      <%= form_paciente.select :paciente_id, @pacientes %>
+    </div>
+  <% end %>
   <div>
     <%= form.label :data, style: "display: block" %>
     <%= form.date_field :data %>
@@ -20,8 +35,8 @@
     <%= form.label :horario, style: "display: block" %>
     <%= form.time_field :horario %>
   </div>
-
   <div>
     <%= form.submit %>
   </div>
+
 <% end %>

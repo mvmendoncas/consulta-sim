@@ -1,4 +1,5 @@
 <div id="<%= dom_id consultum %>">
+
   <p>
     <strong>Data:</strong>
     <%= consultum.data %>
@@ -7,6 +8,11 @@
   <p>
     <strong>Horario:</strong>
     <%= consultum.horario %>
+  </p>
+
+  <p>
+    <strong>Medico:</strong>
+    <%= consultum.medico.all%>
   </p>
 
 </div>

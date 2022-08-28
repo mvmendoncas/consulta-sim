@@ -8,14 +8,14 @@ class PacientesController < ApplicationController
 
   # GET /pacientes/1 or /pacientes/1.json
   def show
-    @medicos = Medico.all.map { |medico| [medico.primeiro_nome + medico.ultimo_nome, medico.id] }
-    @especialidadeDoMedico = Medico.all.map{|medico| [medico.especialidade, medico.id]}
+    # @medicos = Medico.all.map { |medico| [medico.primeiro_nome + medico.ultimo_nome, medico.id] }
+    # @especialidadeDoMedico = Medico.all.map{|medico| [medico.especialidade, medico.id]}
   end
 
   # GET /pacientes/new
   def new
     @paciente = Paciente.new
-    # @paciente.build_endereco
+    @paciente.build_endereco
   end
 
   # GET /pacientes/1/edit
@@ -25,7 +25,7 @@ class PacientesController < ApplicationController
   # POST /pacientes or /pacientes.json
   def create
     @paciente = Paciente.new(paciente_params)
-    #@paciente.endereco = Endereco.new(paciente_params[:endereco_attributes])
+    @paciente.endereco = Endereco.new(paciente_params[:endereco_attributes])
 
     respond_to do |format|
       if @paciente.save

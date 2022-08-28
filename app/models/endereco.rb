@@ -1,5 +1,5 @@
 class Endereco < ApplicationRecord
-  has_one :paciente
+  belongs_to :paciente
 
   validates :cep, presence: true, length: {is: 8}, numericality: { only_integer: true }
   validates :cidade,  presence: true, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }, exclusion: { in: %w(!@#$%¨&*()_+=[{]};:?/'")},  length: { minimum: 2 }

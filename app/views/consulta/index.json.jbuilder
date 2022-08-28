@@ -1,1 +1,1 @@
-json.array! @consulta, partial: "consulta/consultum", as: :consultum
+json.array! @consultum, partial: "consulta/consultum", as: :consultum
