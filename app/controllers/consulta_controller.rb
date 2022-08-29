@@ -14,9 +14,6 @@ class ConsultaController < ApplicationController
   # GET /consulta/new
   def new
     @consultum = Consultum.new
-    @medicos = Medico.all.map { |medico| [medico.primeiro_nome + medico.ultimo_nome, medico.id] }
-    @pacientes = Paciente.all.map { |paciente| [paciente.primeiro_nome + paciente.ultimo_nome, paciente.id] }
-    @consultum.build_medico
   end
 
   # GET /consulta/1/edit
@@ -26,8 +23,10 @@ class ConsultaController < ApplicationController
   # POST /consulta or /consulta.json
   def create
     @consultum = Consultum.new(consultum_params)
-    @medicos = Medico.all.map { |medico| [medico.primeiro_nome + medico.ultimo_nome, medico.id] }
-    @pacientes = Paciente.all.map { |paciente| [paciente.primeiro_nome + paciente.ultimo_nome, paciente.id] }
+    @medico = Medico.find(consultum_params[:medico_id])
+    @paciente = Paciente.find(consultum_params[:paciente_id])
+    @medico.consultum << @consultum
+    @paciente.consultum << @consultum
 
     respond_to do |format|
       if @consultum.save
@@ -44,7 +43,7 @@ class ConsultaController < ApplicationController
   def update
     respond_to do |format|
       if @consultum.update(consultum_params)
-        format.html { redirect_to consultum_url(@consultum), notice: "Consultum was successfully updated." }
+        format.html { redirect_to consulta_url(@consultum), notice: "Consultum was successfully updated." }
         format.json { render :show, status: :ok, location: @consultum }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -58,7 +57,7 @@ class ConsultaController < ApplicationController
     @consultum.destroy
 
     respond_to do |format|
-      format.html { redirect_to consultum_url, notice: "Consultum was successfully destroyed." }
+      format.html { redirect_to consulta_url, notice: "Consultum was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -76,7 +75,4 @@ class ConsultaController < ApplicationController
     params.require(:consultum).permit(:data, :horario, :medico_id, :paciente_id)
   end
 
-  def medico_params
-    params.require(:medico).permit(:primeiro_nome, :ultimo_nome, :cpf, :email, :especialidade, :numero_do_crm)
-  end
 end
