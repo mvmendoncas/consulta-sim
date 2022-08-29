@@ -1,6 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  paciente: one
   cep: MyString
   cidade: MyString
   bairro: MyString
@@ -8,6 +9,7 @@ one:
   complemento: MyText
 
 two:
+  paciente: two
   cep: MyString
   cidade: MyString
   bairro: MyString
