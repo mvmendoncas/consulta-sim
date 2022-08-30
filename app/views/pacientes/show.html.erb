@@ -1,6 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @paciente %>
+<h2> Consultas </h2>
+<%= render @paciente.consultums %>
 
 <div>
   <%= link_to "Edit this paciente", edit_paciente_path(@paciente) %> |

@@ -5,9 +5,10 @@ class MedicosController < ApplicationController
   def index
     @medicos = Medico.all
   end
-  3333333333333
+
   # GET /medicos/1 or /medicos/1.json
   def show
+    
   end
 
   # GET /medicos/new
@@ -58,13 +59,14 @@ class MedicosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_medico
-      @medico = Medico.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def medico_params
-      params.require(:medico).permit(:primeiro_nome, :ultimo_nome, :cpf, :email, :especialidade, :numero_do_crm)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_medico
+    @medico = Medico.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def medico_params
+    params.require(:medico).permit(:primeiro_nome, :ultimo_nome, :cpf, :email, :especialidade, :numero_do_crm, :consulta_id)
+  end
 end
