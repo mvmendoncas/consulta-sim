@@ -8,7 +8,7 @@ class MedicosController < ApplicationController
 
   # GET /medicos/1 or /medicos/1.json
   def show
-    
+
   end
 
   # GET /medicos/new
