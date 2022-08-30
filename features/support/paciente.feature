@@ -4,7 +4,7 @@ Feature: Paciente
   So that eu nao tenha que fazer isso de forma manual ou presencial
 
   Scenario: remover paciente
-    Given estou na pagina do paciente
+    Given entro na pagina do paciente
     And o paciente de cpf '12345678901' existe
     When eu clico em remover o paciente de cpf '12345678901'
     Then eu vejo uma mensagem que o paciente foi apagado com sucesso

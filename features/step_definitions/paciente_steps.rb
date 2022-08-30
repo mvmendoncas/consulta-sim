@@ -1,5 +1,5 @@
-Given('estou na pagina do medico') do
-  pending :action => "show", :controller => "pacientes"
+Given('entro na pagina do medico') do
+  pending redirect_to paciente_url
 end
 
 Given('o medico de crm {string} existe') do |string|
