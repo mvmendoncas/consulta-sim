@@ -25,12 +25,12 @@ class ConsultaController < ApplicationController
     @consultum = Consultum.new(consultum_params)
     @medico = Medico.find(consultum_params[:medico_id])
     @paciente = Paciente.find(consultum_params[:paciente_id])
-    @medico.consultum << @consultum
-    @paciente.consultum << @consultum
+    @medico.consultums << @consultum
+    @paciente.consultums << @consultum
 
     respond_to do |format|
       if @consultum.save
-        format.html { redirect_to consultum_url, notice: "Consulta was successfully created." }
+        format.html { redirect_to consulta_url, notice: "Consulta was successfully created." }
         format.json { render :show, status: :created, location: @consultum }
       else
         format.html { render :new, status: :unprocessable_entity }
